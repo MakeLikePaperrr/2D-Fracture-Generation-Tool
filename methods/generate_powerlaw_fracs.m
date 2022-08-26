@@ -512,7 +512,6 @@ act_frac_sys(indices, 3:4) = act_frac_sys_dummy(indices, 1:2);
 frac_set_vec = frac_set_vec(id_frac_set);
 end
 
-if recalc_connectivity == true
 % Find unique nodes:
 unique_nodes = [act_frac_sys(:, [1, 2]); act_frac_sys(:, [3, 4])];
 [unique_nodes, ~, ~] = unique(unique_nodes, 'rows');
@@ -597,6 +596,7 @@ end
 max_connected_ratio = max_size / sum(component_segm_tot_length);
 current_connectivity = max_connected_ratio;
 
+if recalc_connectivity == true
 components_dist_ids = zeros(num_comp, num_comp, 2);  % node from ii and jj
 components_dist_val = zeros(num_comp, num_comp);
 

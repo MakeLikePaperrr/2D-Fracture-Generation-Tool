@@ -10,7 +10,7 @@ rng(10)  % uncomment if you don't want to be able to replicate result (or simply
 BASE_DIR = 'single_network_1\\';   % folder to which the results are written
 plot_results = true;  % will greatly slow down the code, but shows insight into how the fracture network is generated
 post_process = true;  % almost always a good idea (will calc. intersections and remove duplicated nodes), might slow down the code
-recalc_connectivity = true;  % if true will force prescribed connectivity by removing/adding connections (perhaps not geologically realistic)
+recalc_connectivity = false;  % if true will force prescribed connectivity by removing/adding connections (perhaps not geologically realistic)
 
 % Domain parameters:
 x_min = 0;
@@ -18,19 +18,17 @@ x_max = 1500;
 y_min = 0;
 y_max = 1500;
 
-h  = 15;  % Discretization length (i.e., size of fracture segments)
-alpha  = 3.0;  % Parameter for power-law distribution related to fracture length
-
-connectivity = 0.5;
 num_fracs = 200;
+angle_1 = 90;
+angle_2 = 0;
+connectivity = 0.5;
+
 fracs_per_set = 12;
 min_length_small_fracs = 40;
 min_length_large_fracs = 55;
-angle_1 = 90;
-angle_2 = 0;
 
 deviate_angles_newnetwork = true;
-rand_angle_int = 10; % E.g.: 15 means random angle change between -15 and +15 degrees.
+rand_angle_int = 5; % E.g.: 15 means random angle change between -15 and +15 degrees.
 angle_deviation = [0;0];
 
 % Perform restart algorithm for new fracture sets:
@@ -38,6 +36,9 @@ angle_deviation = [0;0];
 % any existing fracture (2), or normal distribution with
 % the mean of fracture furthest away (3):
 random_restart_method = 2;
+
+h  = 15;  % Discretization length (i.e., size of fracture segments)
+alpha  = 3.0;  % Parameter for power-law distribution related to fracture length
 
 %% Initialization and assignment several parameters
 Xb = x_min + h;   %x lower boundary
@@ -87,7 +88,3 @@ for ii = 1:size(act_frac_sys, 1)
 end
 fclose(fid3);
 clc; 
-if plot_results
-    figure(420); 
-    clf;
-end
