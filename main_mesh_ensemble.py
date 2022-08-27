@@ -3,13 +3,13 @@ import numpy as np
 from methods.generate_mesh_file import create_geo_file
 
 
-NR_REAL = 2
-DIR_INPUT = 'ensemble_1'
+NR_REAL = 10
+DIR_INPUT = 'ensemble_2'
 BASE_FILENAME_INPUT = lambda ith_real: f'real_{ith_real}.txt'
 BASE_FILENAME_OUTPUT = lambda ith_real: f'{DIR_INPUT}_mesh_{ith_real}'
-DIR_OUTPUT = 'ensemble_1_meshes'
+DIR_OUTPUT = f'{DIR_INPUT}_meshes'
 
-char_len = 16
+char_len = 20
 char_len_bound_mult = 1
 
 margin = 25

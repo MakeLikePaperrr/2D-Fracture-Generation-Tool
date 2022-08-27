@@ -1,7 +1,7 @@
 % Plot some example fracture networks:
 BASE_DIR = 'ensemble_1\\';
 
-for ith_real = 1:10
+for ith_real = 1:2
     frac_data_full = load([BASE_DIR 'real_' num2str(ith_real) '.txt']);
     num_main_segm = size(frac_data_full, 1);
     frac_data = zeros(num_main_segm, 6);

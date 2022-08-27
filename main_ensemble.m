@@ -7,11 +7,11 @@ format short
 
 %% Some parameters for multiple realizations:
 rng(10)  % uncomment if you don't want to be able to replicate result (or simply change the seed)
-nr_real = 100;  % number of realizations to generate
-BASE_DIR = 'ensemble_1\\';   % folder to which the results are written
+nr_real = 10;  % number of realizations to generate
+BASE_DIR = 'ensemble_2\\';   % folder to which the results are written
 plot_results = false;  % will greatly slow down the code, but shows insight into how the fracture network is generated
 post_process = true;  % almost always a good idea (will calc. intersections and remove duplicated nodes), might slow down the code
-recalc_connectivity = true;  % if true will force prescribed connectivity by removing/adding connections (perhaps not geologically realistic)
+recalc_connectivity = false;  % if true will force prescribed connectivity by removing/adding connections (perhaps not geologically realistic)
 
 % Domain parameters:
 x_min = 0;
@@ -20,7 +20,7 @@ y_min = 0;
 y_max = 1000;
 
 h  = 15;  % Discretization length (i.e., size of fracture segments)
-alpha  = 3.0;  % Parameter for power-law distribution related to fracture length
+alpha  = 3;  % Parameter for power-law distribution related to fracture length
 
 % Dependent parameters (num_fracs and size_frac_set) on connectivity:
 connectivity_dependency = true;
@@ -56,7 +56,7 @@ mean_angle_2 = 0;
 std_angle_2 = 20;
 
 deviate_angles_newnetwork = true;
-rand_angle_int = 10; % E.g.: 15 means random angle change between -15 and +15 degrees.
+rand_angle_int = 7.5; % E.g.: 15 means random angle change between -15 and +15 degrees.
 angle_deviation = [0;0];
 
 % Perform restart algorithm for new fracture sets:

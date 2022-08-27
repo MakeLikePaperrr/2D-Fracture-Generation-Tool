@@ -6,14 +6,14 @@ sys.path.append(REL_PATH_FRAC_PREPROC)
 from preprocessing_code import frac_preprocessing
 
 
-NR_REAL = 2
-DIR_INPUT = 'ensemble_1'
+NR_REAL = 10
+DIR_INPUT = 'ensemble_2'
 BASE_FILENAME_INPUT = lambda ith_real: f'real_{ith_real}.txt'
 BASE_FILENAME_OUTPUT = lambda ith_real: f'{DIR_INPUT}_mesh_{ith_real}'
-DIR_OUTPUT = 'ensemble_1_clean_meshes'
+DIR_OUTPUT = f'{DIR_INPUT}_clean_meshes'
 
 # Input parameters for cleaning procedure
-char_len = 16  # characteristic length for cleaning and mesh generation [m]
+char_len = 20  # characteristic length for cleaning and mesh generation [m]
 angle_tol_straighten = 7.5  # tolerance for straightening fracture segments [degrees]
 merge_threshold = 0.86  # tolerance for merging nodes in algebraic constraint, values on interval [0.5, 0.86] [-]
 angle_tol_remove_segm = np.arctan(0.35) * 180 / np.pi   # tolerance for removing accute intersections, values on interval [15, 25] [degrees]
